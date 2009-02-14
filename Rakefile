@@ -38,4 +38,9 @@ task :restore do
   end
 end
 
+desc "Generate gemspec file"
+task :gemspec do
+  sh "rake -s debug_gem > rubyforge.gemspec"
+end
+
 # vim:syntax=ruby

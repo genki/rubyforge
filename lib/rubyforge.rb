@@ -11,7 +11,7 @@ $TESTING = false unless defined? $TESTING
 class RubyForge
 
   # :stopdoc:
-  VERSION     = '1.0.2'
+  VERSION     = '1.0.2.1'
   HOME        = ENV["HOME"] || ENV["HOMEPATH"] || File::expand_path("~")
   RUBYFORGE_D = File::join HOME, ".rubyforge"
   CONFIG_F    = File::join RUBYFORGE_D, "user-config.yml"
@@ -53,6 +53,7 @@ class RubyForge
                          CONFIG["rubyforge"].dup
                        end
     @autoconfig["type_ids"] = CONFIG['rubyforge']['type_ids'].dup
+    @userconfig["cookie_jar"] ||= COOKIE_F
 
     raise "no <username>"   unless @userconfig["username"]
     raise "no <password>"   unless @userconfig["password"]
